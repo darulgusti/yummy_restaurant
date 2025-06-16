@@ -17,7 +17,7 @@ session_start();
   <!-- FONT LINK -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-  <title>YUMMY FOOD | RESTO</title>
+  <title>YUMMY FOOD | RESTAURANT</title>
 </head>
 
 <body>
