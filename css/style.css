@@ -1,0 +1,751 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+  --green: #37aa37;
+  --black: #192a19;
+  --bg: #fff;
+  --light-color: #686868;
+  --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+/* LOGIN DAN REGISTER */
+.form-container {
+  background: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container h2 {
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* FORM INPUT */
+form input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+form input:focus {
+  outline: 1px solid var(--green);
+}
+
+/* BUTTON */
+form button {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--green);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #2e8b2e;
+}
+
+/* LINK */
+p {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--light-color);
+  font-size: 0.95rem;
+}
+
+p a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+*{
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden ;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+
+header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--bg);
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo{
+  color: var(--black);
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+header .logo i{
+  color: var(--green);
+  margin: .4rem;
+}
+
+header .navbar a{
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: .5rem;
+  padding: .5rem 1.2rem;
+  margin: 0 .8rem;
+  color: var(--light-color);
+}
+
+header .navbar a:hover,
+header .navbar a.active{
+  color: white;
+  background: var(--green);
+}
+
+header .icons i,
+header .icons a{
+  cursor: pointer;
+  margin-left: .5rem;
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--black);
+  border-radius: 50%;
+  background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover{
+  color: white;
+  background: var(--green);
+  transform: rotate(360deg);
+  transition: all .4s linear;
+}
+
+header .icons #menu-bars{
+  display: none;
+}
+
+/* SEARCH FORM */
+#search-form{
+  position: fixed;
+  top: -110%; left: 0; right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  z-index: 980;
+  background-color: rgba(0,0,0,.7);
+}
+
+#search-form.active{
+  top: 0;
+  transition: all .3s linear;
+}
+
+#search-box{
+  width: 30rem;
+  border: none;
+  outline: none;
+  border-bottom: .150rem solid black;
+  color: white;
+  font-size: 1.3rem;
+  background: none;
+  text-transform: none;
+  padding: .8rem 1rem;
+}
+
+#search-box::placeholder{
+  color: #e4e1e1;
+}
+
+#search-box::-webkit-search-cancel-button{
+  -webkit-appearance: none;
+}
+
+#search-form label{
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+#search-form label:hover{
+  color: var(--green);
+}
+
+#search-form #close{
+  position: absolute;
+  color: #fff;
+  cursor: pointer;
+  top: 8rem; right: 3rem;
+  font-size: 5rem;
+}
+
+/* SEARCH FORM END */
+
+/* KERANJANG CSS */
+.cart {
+  position: fixed; /* Pastikan posisi fixed untuk tetap di tempat */
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background: var(--bg);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+  z-index: 9999; /* Pastikan keranjang di atas elemen lainnya */
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.cart-overlay {
+  position: fixed; /* Pastikan overlay juga fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Warna overlay */
+  z-index: 9998; /* Dibuat sedikit lebih rendah dari keranjang */
+  display: none;
+}
+
+
+.cart.active {
+  transform: translateX(0);
+}
+
+.cart-overlay.active {
+  display: block;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+#cart-items li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* KERANJANG CSS END */
+
+/* -------- HOME CSS -------- */
+section{
+  padding: 2rem 9%;
+}
+
+section:nth-child(even){
+  background:#eee ;
+}
+
+.home .home-slider .slide{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  padding-top:7rem ;
+}
+
+.home .home-slider .slide .content{
+  flex: 1 1 40rem;
+}
+
+.home .home-slider .slide .image{
+  flex: 1 1 40rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.home .home-slider .slide .image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home .home-slider .slide .content span{
+  color: var(--green);
+  font-size: 2rem;
+}
+
+.home .home-slider .slide .content h3{
+  color: var(--black);
+  font-size: 6rem;
+}
+
+.home .home-slider .slide .content p{
+  color: var(--light-color);
+  font-size: 1.5rem;
+  padding: .5rem 0;
+  line-height: 2rem;
+}
+
+.btn{
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 1.7rem;
+  color: #fff;
+  background: var(--black);
+  border-radius: .5rem;
+  cursor: pointer;
+  padding: .8rem 3rem;
+}
+
+.btn:hover{
+  background-color: var(--green);
+  letter-spacing: .1rem;
+}
+
+.swiper-pagination-bullet-active{
+  background: var(--green);
+}
+
+/* -------- ABOUT CSS --------*/
+
+.about .heading{
+  text-align: center;
+  color: var(--black);
+  font-size: 2.3rem;
+  padding-top: -10rem;
+  text-transform: uppercase;
+}
+
+.about .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.about .row .image{
+  flex: 1 1 45rem;
+}
+
+.about .row .image img{
+  width: 90%;
+}
+
+.about .row .content{
+  flex: 1 1  45rem;
+}
+
+.about .row .content h3{
+  color: var(--black);
+  font-size: 3rem;
+  padding: .5rem 0;
+}
+
+.about .row .content p{
+  color: var(--light-color);
+  font-size: 1.3rem;
+  padding: .5rem 0;
+  line-height: 2rem;
+}
+
+.about .row .content .icons-container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: .5rem;
+}
+
+.about .row .content .icons-container .icons{
+  background: #eeeeee00;
+  border-radius: .5rem;
+  border: .1rem solid rgba(0,0,0,.2);
+  display: flex; align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1 1 10rem;
+  padding: 1rem 1rem;
+}
+
+.about .row .content .icons-container .icons i{
+  font-size: 1.5rem;
+  color: var(--green);
+}
+
+.about .row .content .icons-container .icons span{
+  color: var(--black);
+  font-size: 1.5rem;
+}
+
+/* -------- ABOUT CSS END -------- */
+
+
+/* --------- MENU CSS --------- */
+.sub-heading{
+  text-align: center;
+  color: var(--green);
+  font-size: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.heading{
+  text-align: center;
+  color: var(--black);
+  font-size: 3rem;
+  padding-bottom: 2rem;
+}
+
+.menu .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 1rem;
+}
+
+.menu .box-container .box{
+  padding: 2.5rem;
+  background-color: #fff;
+  border-radius: .5rem;
+  border: .1rem solid rgba(0,0,0,.2);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.menu .box-container .box img{
+  height: 17rem;
+  margin: 1rem 0;
+}
+
+.menu .box-container .box h3{
+  color: var(--black);
+  font-size: 2rem;
+}
+
+.menu .box-container .box .stars{
+  padding: 1rem 0;
+}
+
+.menu .box-container .box .stars i{
+  font-size: 1rem;
+  color: var(--green);
+}
+
+.menu .box-container .box span{
+  color: var(--green);
+  font-weight: bolder;
+  margin-right: 2rem;
+  font-size: 1.5rem;
+}
+
+.menu .box-container .box .btn{
+  font-size: 1.3rem;
+  padding: 1rem 2rem;
+}
+/*-------- MENU CSS END -------- */
+
+
+/* ------ CONTACT CSS ------ */
+.contact {
+  padding: 2rem 9%;
+}
+
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.contact .row .image {
+  flex: 1 1 35rem;
+}
+
+.contact .row .image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 2rem;
+  background: #c2c2c2;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact .row form .inputBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact .row form .inputBox #email{
+  margin-bottom: 1rem;
+}
+
+.contact .row form .inputBox input {
+  width: 49%;
+  text-transform: lowercase;
+  font-size: 12px;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact .row form textarea {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.contact .row form .btn {
+font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* ------ CONTACT CSS END ------ */
+
+
+/* ------ FOOTER CSS  ------ */
+.footer {
+  background-color: var(--black);
+  color: var(--bg);
+  padding: 2rem 9%;
+  margin-top: 3rem;
+  box-shadow: var(--box-shadow);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.footer-logo h3,
+.footer-nav h4,
+.footer-contact h4 {
+  font-size: 1.7rem;
+}
+
+.footer-logo p,
+.footer-nav li a,
+.footer-contact p{
+  font-size: 1.2rem;
+  color: var(--light-color);
+}
+
+.footer-logo,
+.footer-nav,
+.footer-contact {
+  flex: 1 1 250px;
+}
+
+.footer-logo h3,
+.footer-nav h4,
+.footer-contact h4 {
+  margin-bottom: 1rem;
+  color: var(--green);
+}
+
+.footer-logo p {
+  color: var(--light-color);
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav ul li a {
+  color: var(--bg);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+  color: var(--green);
+}
+
+.footer-contact p {
+  color: var(--light-color);
+}
+
+.footer-contact i {
+  color: var(--green);
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--light-color);
+}
+
+
+/* ------ FOOTER CSS END ------ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 991px ){
+  html{
+  font-size: 55%;
+  }
+
+  header{
+  padding: 1rem 4%;
+  }
+
+  section{
+    padding: 4rem;
+  }
+
+  .menu .box-container .box img{
+  height: auto;
+  width: 100%;
+}
+
+  .about .icons-container .btn{
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px ){
+  header .icons #menu-bars{
+    display: inline-block;
+  }
+
+  header .navbar{
+    position:absolute;
+    top: 100%; left: 0; right: 0;
+    background: #fff;
+    border-top: .1rem solid rgba(0,0,0,.2);
+    border-bottom: .2rem solid rgba(0,0,0,.2);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .navbar.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  header .navbar a{
+    display: block;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: #eee;
+  }
+
+  #search-box{
+    width: 50%;
+    margin: 0 1rem;
+  }
+
+  .home .home-slider .slide .content h3{
+  font-size: 4rem;
+}
+
+.contact .row {
+    flex-direction: column;
+  }
+
+  .contact .row form,
+  .contact .row .image {
+    width: 100%;
+  }
+
+  .contact .heading {
+    font-size: 2.5rem;
+  }
+
+
+
+
+}
+
+@media (max-width: 600px ){
+    html{
+  font-size: 50%;
+  }
+
+  header{
+  padding: 1rem 4%;
+  }
+
+}
